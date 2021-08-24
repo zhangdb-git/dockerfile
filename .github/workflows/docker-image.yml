@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
     - name: login
-      run: docker login docker.io -u zhangdber -p 123456aaa
+      run: echo 123456aaa | docker login docker.io -u zhangdber --password-stdin
     - name: push
       run: docker push zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
       

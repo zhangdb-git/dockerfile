@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
+           docker login docker.io -u zhangdber -p 123456aaa
+           docker push zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
+      

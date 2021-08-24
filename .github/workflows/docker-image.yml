@@ -17,6 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
     - name: Publish to Docker Repository
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: zhangdber/cluster-api/kubeadm-bootstrap-controller:v0.4.0
         username: zhangdber
